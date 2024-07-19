@@ -1,5 +1,6 @@
 type Query {
   getEarthquake(id: Int!): Earthquake!
+  getPaginatedEarthquakes(page: Int = 1, limit: Int = 10): PaginatedEarthquakeOutput!
 }
 
 type Earthquake {
@@ -34,4 +35,26 @@ enum EarthquakeMagType {
 enum EarthquakeSource {
   NEI
   AK
+}
+
+type PaginatedEarthquakeOutput {
+  items: [Earthquake!]!
+  meta: PaginationMeta!
+}
+
+type PaginationMeta {
+  """the amount of items on this specific page"""
+  itemCount: Float!
+
+  """the total amount of items"""
+  totalItems: Float
+
+  """the amount of items that were requested per page"""
+  itemsPerPage: Float!
+
+  """the total amount of pages in this paginator"""
+  totalPages: Float
+
+  """the current page this paginator "points" to"""
+  currentPage: Float!
 }

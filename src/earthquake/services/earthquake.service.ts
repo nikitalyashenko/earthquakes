@@ -4,6 +4,9 @@ import { InjectRepository } from 'typeorm-typedi-extensions';
 
 import { Earthquake } from '../entities/earthquake.entity';
 import { GqlApiError, GqlApiErrorCode } from '../../graphql/gql-api-error';
+import { PaginationInput } from '../../graphql/dto/pagination.input';
+import { PaginatedEarthquakeOutput } from '../dto/paginated-earthquake.output';
+import { paginate } from '../../utils/paginate';
 
 @Service()
 export class EarthquakeService {
@@ -20,5 +23,11 @@ export class EarthquakeService {
     }
 
     return earthquake;
+  }
+
+  public async getPaginatedEarthquake(
+    paginationInput: PaginationInput,
+  ): Promise<PaginatedEarthquakeOutput> {
+    return paginate<Earthquake>(this.earthquakeRepo, paginationInput);
   }
 }
