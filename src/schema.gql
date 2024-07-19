@@ -58,3 +58,9 @@ type PaginationMeta {
   """the current page this paginator "points" to"""
   currentPage: Float!
 }
+
+type Mutation {
+  createEarthquake(dateTime: DateTimeISO!, latitude: Float!, longitude: Float!, depth: Float!, magnitude: Float!, magType: EarthquakeMagType!, nbStations: Int!, gap: Int, distance: Float, rms: Float, source: EarthquakeSource!, eventId: String): Earthquake!
+  updateEarthquake(id: Int!, dateTime: DateTimeISO, latitude: Float, longitude: Float, depth: Float, magnitude: Float, magType: EarthquakeMagType, nbStations: Int, gap: Int, distance: Float, rms: Float, source: EarthquakeSource, eventId: String): Earthquake!
+  deleteEarthquake(id: Int!): Boolean!
+}

@@ -6,7 +6,7 @@ import express, { Application } from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { printSchema, GraphQLSchema } from 'graphql';
 
-import AppDataSourceOptions from './db/connection';
+import { postgresConnectionOptions } from './db/connection';
 import { createSchema } from './schema';
 import logger from './utils/logger';
 
@@ -16,7 +16,7 @@ useContainer(Container);
 
 const initializeDataSource = async (): Promise<void> => {
   try {
-    await createConnection(AppDataSourceOptions);
+    await createConnection(postgresConnectionOptions);
     logger.info('Data Source has been initialized!');
   } catch (error) {
     logger.error('Error during data source initialization:', error);
