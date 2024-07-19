@@ -2,7 +2,6 @@ import { GraphQLError } from 'graphql';
 
 export enum GqlApiErrorCode {
   NotFound = 'NOT_FOUND',
-  InternalError = 'INTERNAL_ERROR',
 }
 
 export class GqlApiError extends GraphQLError {
