@@ -4,9 +4,18 @@ type Query {
 
 type Earthquake {
   id: Int!
-  location: String!
+  dateTime: DateTimeISO!
+  latitude: Float!
+  longitude: Float!
+  depth: Float!
   magnitude: Float!
-  date: DateTimeISO!
+  magType: EarthquakeMagType!
+  nbStations: Int!
+  gap: Int
+  distance: Float
+  rms: Float
+  source: EarthquakeSource!
+  eventId: String
 }
 
 """
@@ -14,6 +23,15 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTimeISO
 
-type Mutation {
-  createEarthquake(date: DateTimeISO!, magnitude: Float!, location: String!): Earthquake!
+"""The type of magnitude"""
+enum EarthquakeMagType {
+  ML
+  Mb
+  Ms
+}
+
+"""The source of earthquake data"""
+enum EarthquakeSource {
+  NEI
+  AK
 }
