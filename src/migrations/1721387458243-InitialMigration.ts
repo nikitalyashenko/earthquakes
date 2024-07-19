@@ -1,5 +1,7 @@
+import { Service } from 'typedi';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
+@Service()
 export class InitialMigration1721387458243 implements MigrationInterface {
   name = 'InitialMigration1721387458243';
 

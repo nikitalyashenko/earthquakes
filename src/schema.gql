@@ -1,5 +1,5 @@
 type Query {
-  getEarthquakes: [Earthquake!]!
+  getEarthquake(id: Int!): Earthquake!
 }
 
 type Earthquake {

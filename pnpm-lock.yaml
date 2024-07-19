@@ -39,9 +39,15 @@ importers:
       type-graphql:
         specifier: 2.0.0-rc.2
         version: 2.0.0-rc.2(class-validator@0.14.1)(graphql-scalars@1.23.0(graphql@16.9.0))(graphql@16.9.0)
+      typedi:
+        specifier: ^0.10.0
+        version: 0.10.0
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20(pg@8.12.0)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+      typeorm-typedi-extensions:
+        specifier: ^0.4.1
+        version: 0.4.1(typedi@0.10.0)(typeorm@0.3.20(pg@8.12.0)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))
       winston:
         specifier: ^3.13.1
         version: 3.13.1
@@ -1845,6 +1851,15 @@ packages:
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
+
+  typedi@0.10.0:
+    resolution: {integrity: sha512-v3UJF8xm68BBj6AF4oQML3ikrfK2c9EmZUyLOfShpJuItAqVBHWP/KtpGinkSsIiP6EZyyb6Z3NXyW9dgS9X1w==}
+
+  typeorm-typedi-extensions@0.4.1:
+    resolution: {integrity: sha512-05hWktQ4zuXzTTUO3ao56yOezlvUuZhH2NRS//m0SOGCAJoVlfPTMHcmDaMSQy/lMfAwPWoIyn+sfK7ONzTdXQ==}
+    peerDependencies:
+      typedi: '>=0.10.0'
+      typeorm: '>=0.2.30'
 
   typeorm@0.3.20:
     resolution: {integrity: sha512-sJ0T08dV5eoZroaq9uPKBoNcGslHBR4E4y+EBHs//SiGbblGe7IeduP/IH4ddCcj0qp3PHwDwGnuvqEAnKlq/Q==}
@@ -3818,6 +3833,13 @@ snapshots:
     dependencies:
       media-typer: 0.3.0
       mime-types: 2.1.35
+
+  typedi@0.10.0: {}
+
+  typeorm-typedi-extensions@0.4.1(typedi@0.10.0)(typeorm@0.3.20(pg@8.12.0)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))):
+    dependencies:
+      typedi: 0.10.0
+      typeorm: 0.3.20(pg@8.12.0)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
 
   typeorm@0.3.20(pg@8.12.0)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
     dependencies:
