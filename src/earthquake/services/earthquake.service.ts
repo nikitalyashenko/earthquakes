@@ -17,7 +17,7 @@ import { paginate } from '../../utils/paginate';
 export class EarthquakeService {
   constructor(
     @InjectRepository(Earthquake)
-    private earthquakeRepo: Repository<Earthquake>,
+    private readonly earthquakeRepo: Repository<Earthquake>,
   ) {}
 
   public async getById(id: number): Promise<Earthquake> {

@@ -16,7 +16,7 @@ import { UpdateEarthquakeInput } from './dto/earthquake-update.input';
 export class EarthquakeResolver {
   constructor(
     @Inject(() => EarthquakeService)
-    private earthquakeService: EarthquakeService,
+    private readonly earthquakeService: EarthquakeService,
   ) {}
 
   @Query(() => Earthquake)
