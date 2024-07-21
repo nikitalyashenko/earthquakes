@@ -66,7 +66,7 @@ For database migrations, use the following commands:
   pnpm run migration:run
   ```
 
-  - You dont need it)):
+- You dont need it)):
   ```sh
   migration:revert
   ```
@@ -97,7 +97,9 @@ Ensure your code adheres to the project's standards with these commands:
 
 ## 🔜 Next Steps
 
-I'm having a lot of fun with this project I'd like to improve a lot of things here, but I'm very short on time! Here are a few ideas:
+I'm having a lot of fun with this project 
+I'd like to improve a lot of things here, but I'm very short on time!
+Here are a few ideas:
 
 - Split data into different tables and set up relations & indexes
 - Implement vector search
