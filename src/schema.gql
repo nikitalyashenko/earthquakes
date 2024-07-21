@@ -29,12 +29,26 @@ enum EarthquakeMagType {
   ML
   Mb
   Ms
+  Mw
+  Unk
 }
 
 """The source of earthquake data"""
 enum EarthquakeSource {
-  NEI
   AK
+  CI
+  HV
+  UW
+  UU
+  US
+  CAS
+  ROM
+  GUC
+  JMA
+  REN
+  NEI
+  PGC
+  MDD
 }
 
 type PaginatedEarthquakeOutput {
