@@ -11,7 +11,7 @@ type Earthquake {
   depth: Float!
   magnitude: Float!
   magType: EarthquakeMagType!
-  nbStations: Int!
+  nbStations: Int
   gap: Int
   distance: Float
   rms: Float
@@ -26,11 +26,14 @@ scalar DateTimeISO
 
 """The type of magnitude"""
 enum EarthquakeMagType {
+  MB
+  MC
+  MD
+  ME
   ML
-  Mb
-  Ms
-  Mw
-  Unk
+  MS
+  MW
+  UNK
 }
 
 """The source of earthquake data"""
@@ -38,17 +41,28 @@ enum EarthquakeSource {
   AK
   CI
   HV
-  UW
-  UU
+  NC
+  NN
   US
+  UU
+  UW
+  WY
+  AEI
+  ATH
   CAS
-  ROM
+  DOE
   GUC
+  ISK
   JMA
-  REN
+  MDD
   NEI
   PGC
-  MDD
+  REN
+  ROM
+  SJA
+  UCR
+  UNM
+  WEL
 }
 
 type PaginatedEarthquakeOutput {
@@ -77,4 +91,27 @@ type Mutation {
   createEarthquake(dateTime: DateTimeISO!, latitude: Float!, longitude: Float!, depth: Float!, magnitude: Float!, magType: EarthquakeMagType!, nbStations: Int!, gap: Int, distance: Float, rms: Float, source: EarthquakeSource!, eventId: String): Earthquake!
   updateEarthquake(id: Int!, dateTime: DateTimeISO, latitude: Float, longitude: Float, depth: Float, magnitude: Float, magType: EarthquakeMagType, nbStations: Int, gap: Int, distance: Float, rms: Float, source: EarthquakeSource, eventId: String): Earthquake!
   deleteEarthquake(id: Int!): Boolean!
+  importEarthquakes(fileUrl: String!): ImportEarthquakesOutput!
+}
+
+type ImportEarthquakesOutput {
+  totalImportedCount: Int!
+  failedImportCount: Int!
+  failedFields: [EarthquakeCsvRowOutput!]!
+}
+
+type EarthquakeCsvRowOutput {
+  dateTime: String!
+  latitude: String!
+  longitude: String!
+  depth: String!
+  magnitude: String!
+  magType: String!
+  nbStations: String
+  gap: String
+  distance: String
+  rms: String
+  source: String!
+  eventID: String
+  propertyError: [String!]
 }
