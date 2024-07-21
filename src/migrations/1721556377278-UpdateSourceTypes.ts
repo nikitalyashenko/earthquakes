@@ -1,5 +1,7 @@
+import { Service } from 'typedi';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
+@Service()
 export class UpdateSourceTypes1721556377278 implements MigrationInterface {
   name = 'UpdateSourceTypes1721556377278';
 
