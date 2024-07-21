@@ -43,20 +43,27 @@ export class EarthquakeService {
     return this.earthquakeRepo.save(earthquake);
   }
 
-  public async updateEarthquake(
-    updateEarthquakeInput: UpdateEarthquakeInput,
-  ): Promise<Earthquake> {
-    const earthquake = await this.getById(updateEarthquakeInput.id);
+  public async updateEarthquake({
+    id,
+    ...updateData
+  }: UpdateEarthquakeInput): Promise<Earthquake> {
+    const { affected } = await this.earthquakeRepo.update(id, updateData);
 
-    Object.assign(earthquake, updateEarthquakeInput);
-    return this.earthquakeRepo.save(earthquake);
+    if (!affected) {
+      throw new GqlApiError(
+        GqlApiErrorCode.NotFound,
+        'Unable to update earthquake',
+      );
+    }
+
+    return this.getById(id);
   }
 
   public async deleteEarthquake(id: number): Promise<boolean> {
     const { affected } = await this.earthquakeRepo.delete({ id });
 
     if (!affected) {
-      throw new GqlApiError(GqlApiErrorCode.NotFound, 'Earthquake not found');
+      throw new GqlApiError(GqlApiErrorCode.NotFound, 'Undable to delete');
     }
 
     return true;
