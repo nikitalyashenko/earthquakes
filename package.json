@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "ts-node-dev --respawn src/index.ts",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "prettier": "prettier --ignore-path .eslintignore \"./src/**/*.+(ts|json)\"",
     "check-format": "npm run prettier -- --list-different",
