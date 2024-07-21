@@ -1,9 +1,14 @@
 import { registerEnumType } from 'type-graphql';
 
 export enum EarthquakeMagType {
+  MB = 'Mb',
+  MC = 'Mc',
+  MD = 'Md',
+  ME = 'Me',
   ML = 'ML',
-  Mb = 'Mb',
-  Ms = 'Ms',
+  MS = 'Ms',
+  MW = 'Mw',
+  UNK = 'Unk',
 }
 
 registerEnumType(EarthquakeMagType, {
