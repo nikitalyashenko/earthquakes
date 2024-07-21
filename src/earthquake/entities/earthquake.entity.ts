@@ -44,9 +44,9 @@ export class Earthquake extends BaseEntity {
   })
   magType: EarthquakeMagType;
 
-  @Field(() => Int)
-  @Column('int')
-  nbStations: number;
+  @Field(() => Int, { nullable: true })
+  @Column('int', { nullable: true })
+  nbStations: Maybe<number>;
 
   @Field(() => Int, { nullable: true })
   @Column('int', { nullable: true })
@@ -57,7 +57,7 @@ export class Earthquake extends BaseEntity {
   distance: Maybe<number>;
 
   @Field(() => Float, { nullable: true })
-  @Column('decimal', { precision: 10, scale: 9, nullable: true })
+  @Column('decimal', { precision: 10, scale: 7, nullable: true })
   rms: Maybe<number>;
 
   @Field(() => EarthquakeSource)
