@@ -57,7 +57,7 @@ export class Earthquake extends BaseEntity {
   distance: Maybe<number>;
 
   @Field(() => Float, { nullable: true })
-  @Column('decimal', { precision: 10, scale: 9 })
+  @Column('decimal', { precision: 10, scale: 9, nullable: true })
   rms: Maybe<number>;
 
   @Field(() => EarthquakeSource)

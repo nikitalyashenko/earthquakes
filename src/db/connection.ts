@@ -1,11 +1,11 @@
-import { DataSource } from 'typeorm';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { config } from 'dotenv';
+import { DataSource } from 'typeorm';
 
 // Load env vars
 config();
 
-const options: PostgresConnectionOptions = {
+export const postgresConnectionOptions: PostgresConnectionOptions = {
   type: 'postgres',
   url: process.env.DB_URL,
   synchronize: false,
@@ -14,4 +14,4 @@ const options: PostgresConnectionOptions = {
   logging: false,
 };
 
-export default new DataSource(options);
+export default new DataSource(postgresConnectionOptions);
