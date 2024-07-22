@@ -2,6 +2,8 @@
 
 Welcome to the **Global Catalog of Earthquakes** app! This application provides features to import and analyze global earthquake data. Let's get started!
 
+Here is working playground: https://earthquakes.lyashenko.pro/graphql
+
 ## 🚀 Installation
 
 ### Prerequisites
